@@ -1,0 +1,150 @@
+* {
+  box-sizing: border-box; /* Include padding and border in element's total width and height */
+  margin: 0; /* Remove default margin */
+  padding: 0; /* Remove default padding */
+}
+
+body {
+  font-family: 'Open Sans', sans-serif; /* Set font family */
+  font-weight: 300; /* Set font weight */
+  background: #030303; /* Background color */
+  color: white; /* Text color */
+}
+
+.background {
+  background-image: linear-gradient(to bottom, transparent 40%, rgba(0, 0, 0, 0.95) 70%, #020202), url("https://i.imgur.com/9KVO1Ok.jpg"); /* Background gradient and image */
+  width: 100vw; /* Full viewport width */
+  height: 100vh; /* Full viewport height */
+  background-position: top; /* Position background at the top */
+  z-index: 1; /* Layer position */
+  position: relative; /* Relative positioning for child elements */
+  box-shadow: 0 50px 50px black; /* Shadow effect */
+  animation: backgroundMove 15s linear infinite; /* Background animation */
+}
+
+@keyframes backgroundMove {
+  0% { background-position: center; }
+  100% { background-position: right; }
+}
+
+h1 {
+  position: absolute; /* Absolute positioning for centered placement */
+  top: 50%; /* Center vertically */
+  left: 50%; /* Center horizontally */
+  transform: translate(-50%, -50%); /* Offset for centering */
+  z-index: 100; /* Layer position */
+  font-family: 'Gruppo', cursive; /* Font style for the heading */
+  text-transform: uppercase; /* Uppercase text */
+  letter-spacing: 0.5rem; /* Spacing between letters */
+  font-size: 3rem; /* Font size */
+  color: white; /* Text color */
+  text-shadow: 2px 2px 5px; /* Text shadow effect */
+  animation: fadeIn 1.5s ease-in-out, swing 1s infinite alternate; /* Fade-in and swing animation */
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -60%); /* Move slightly up during fade-in */
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, -50%);
+  }
+}
+
+@keyframes swing {
+  0% { transform: translate(-50%, -50%) rotate(0deg); }
+  100% { transform: translate(-50%, -50%) rotate(5deg); }
+}
+
+.layer {
+  position: absolute; /* Absolute positioning for layering */
+  top: 0; /* Start from the top */
+  left: 0; /* Start from the left */
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  background-position: center; /* Center the background image */
+  background-size: cover; /* Cover the entire layer */
+  background-repeat: no-repeat; /* Do not repeat background image */
+  transition: opacity 0.5s ease; /* Smooth transition for opacity */
+}
+
+.layer-1 {
+  background-image: linear-gradient(to bottom, transparent 50%, rgba(0, 0, 0, 0.85) 70%, #020202), url("https://i.imgur.com/bwEm8WB.png"); /* Layer 1 background */
+  z-index: 70; /* Layer position */
+}
+
+.layer-2 {
+  background-image: linear-gradient(to bottom, transparent 30%, rgba(0, 0, 0, 0.9) 80%, #020202), url("https://i.imgur.com/XxTPjmC.png"); /* Layer 2 background */
+  z-index: 80; /* Layer position */
+}
+
+.layer-3 {
+  background-image: linear-gradient(to bottom, transparent 60%, rgba(0, 0, 0, 0.85), #020202), url("https://i.imgur.com/F4xnzjU.png"); /* Layer 3 background */
+  z-index: 90; /* Layer position */
+}
+
+.content {
+  font-size: 1.2rem; /* Font size for content */
+  line-height: 1.7; /* Line height for readability */
+  position: relative; /* Relative positioning for child elements */
+  background-image: url("https://images.pexels.com/photos/998641/pexels-photo-998641.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500"); /* Background image for content */
+  background-size: cover; /* Cover the entire content area */
+  background-attachment: fixed; /* Fixed background attachment */
+}
+
+.text {
+  padding: 4rem 10rem 20rem 40rem; /* Padding around the text */
+  transition: padding 0.5s ease; /* Smooth transition for padding */
+}
+
+.rock {
+  background-image: url("https://i.imgur.com/F4xnzjU.png"); /* Background image for main rock */
+  width: 100vw; /* Full viewport width */
+  height: 100vh; /* Full viewport height */
+  position: absolute; /* Absolute positioning for layering */
+  bottom: 0; /* Align to the bottom */
+  left: 0; /* Align to the left */
+  background-position: left center; /* Position background image */
+  -webkit-transform: scaleX(-1); /* Flip horizontally for WebKit browsers */
+  transform: scaleX(-1); /* Flip horizontally */
+  animation: float 3s ease-in-out infinite; /* Floating animation */
+}
+
+@keyframes float {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0); }
+}
+
+.rocks {
+  position: absolute; /* Absolute positioning for rock images */
+  z-index: 1000; /* Layer position */
+  transition: transform 0.5s ease; /* Smooth transition for rocks */
+}
+
+/* Styles for individual rock images with specific sizes and positions */
+.rock-1 {
+  width: 100px; /* Width of rock 1 */
+  height: 100px; /* Height of rock 1 */
+  left: 10%; /* Position from the left */
+  top: 50%; /* Position from the top */
+  transition: transform 0.5s ease; /* Smooth transition for rock */
+}
+
+/* Additional rock styles... */
+
+@media only screen and (max-width: 1200px) {
+  h1 {
+    font-size: 2rem; /* Font size for heading on smaller screens */
+    letter-spacing: 0.1rem; /* Letter spacing on smaller screens */
+    text-align: center; /* Center the text */
+  }
+  .rocks, .rock {
+    display: none; /* Hide rocks on smaller screens */
+  }
+  .text {
+    padding: 0 3rem 5rem 3rem; /* Adjust padding for text on smaller screens */
+  }
+}
